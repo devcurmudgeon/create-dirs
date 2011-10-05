@@ -41,10 +41,12 @@ lib
 media
 mnt
 opt
+proc
 root
+run
 sbin
 srv
-run
+sys
 tmp
 usr
 usr/bin
