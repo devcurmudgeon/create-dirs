@@ -1,0 +1,90 @@
+#!/bin/sh
+#
+# Create FHS directories below a target directory.
+#
+# Copyright (C) 2011  Codethink Limited
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+set -e
+
+if [ "$#" != 1 ]
+then
+    echo "Error: must give target root directory as argument." 1>&2
+    exit 1
+fi
+
+target="$1"
+
+owner=root
+group=root
+perms=0755
+
+dirs="
+bin
+boot
+dev
+etc
+home
+lib
+media
+mnt
+opt
+root
+sbin
+srv
+tmp
+usr
+usr/bin
+usr/include
+usr/lib
+usr/local
+usr/local/bin
+usr/local/lib
+usr/local/share
+usr/local/sbin
+usr/sbin
+usr/share
+usr/share/doc
+usr/share/man
+usr/share/man1
+usr/share/man2
+usr/share/man3
+usr/share/man4
+usr/share/man5
+usr/share/man6
+usr/share/man7
+usr/share/man8
+usr/share/misc
+var
+var/cache
+var/lib
+var/lock
+var/log
+var/run
+var/spool
+var/tmp
+"
+
+for dirname in $dirs
+do
+    install -d -o "$owner" -g "$group" -m "$perms" "$target/$dirname"
+done
+
+# Fix permissions and ownerships for some special cases.
+chown "$owner:$group" "$target/."
+chmod "$perms" "$target/."
+chmod 01777 "$target/tmp"
+chmod 01777 "$target/var/tmp"
+
