@@ -4,6 +4,7 @@ README for `fhs-dirs`
 `fhs-dirs` is a tiny project that creates the minimal directory structure
 to implement the Filesystem Hierarchy Standard (FHS).
 
+
 Legalese
 --------
 
