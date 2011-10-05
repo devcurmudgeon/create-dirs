@@ -1,0 +1,6 @@
+{
+    "name": "fhs-dirs",
+    "install-commands": [
+        "./create-fhs-dirs \"$DESTDIR\""
+    ]
+}
