@@ -44,6 +44,7 @@ opt
 root
 sbin
 srv
+run
 tmp
 usr
 usr/bin
@@ -72,7 +73,6 @@ var/cache
 var/lib
 var/lock
 var/log
-var/run
 var/spool
 var/tmp
 "
