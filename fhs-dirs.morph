@@ -3,6 +3,7 @@
     "kind": "chunk",
     "decription": "create the FHS 2.3 directory hierarchy",
     "install-commands": [
-        "./create-fhs-dirs \"$DESTDIR\""
+        "./create-fhs-dirs \"$DESTDIR\"",
+        "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
 }
