@@ -6,6 +6,13 @@
         "./create-fhs-dirs \"$DESTDIR\"",
         "mknod -m 600 \"$DESTDIR/dev/console\" c 5 1",
         "mknod -m 666 \"$DESTDIR/dev/null\" c 1 3",
+        "mkdir -p \"$DESTDIR\"/tools",
+        "ln -s ../bin \"$DESTDIR\"/tools/bin",
+        "ln -s ../sbin \"$DESTDIR\"/tools/sbin",
+        "ln -s ../lib \"$DESTDIR\"/tools/lib",
+        "ln -s ../lib64 \"$DESTDIR\"/tools/lib64",
+        "ln -s ../lib32 \"$DESTDIR\"/tools/lib32",
+        "ln -s ../libexec \"$DESTDIR\"/tools/libexec",
         "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
 }
