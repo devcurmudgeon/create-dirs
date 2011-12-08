@@ -4,8 +4,12 @@
     "decription": "create the FHS 2.3 directory hierarchy (bootstrap edition)",
     "install-commands": [
         "./create-fhs-dirs \"$DESTDIR\"",
-        "mknod -m 600 \"$DESTDIR/dev/console\" c 5 1",
-        "mknod -m 666 \"$DESTDIR/dev/null\" c 1 3",
+        "./create-dev-nodes \"$DESTDIR\"",
+        "install passwd \"$DESTDIR/etc/passwd\"",
+        "install inittab \"$DESTDIR/etc/inittab\"",
+        "install group \"$DESTDIR/etc/group\"",
+        "install -d \"$DESTDIR/etc/init.d\"",
+        "install -m 744 rcS \"$DESTDIR/etc/init.d/rcS\"",
         "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
 }
