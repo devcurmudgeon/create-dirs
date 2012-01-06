@@ -86,8 +86,8 @@ do
 done
 
 # Add stupid lib64 symlinks.
-ln -s lib64 "$target/lib64"
-ln -s lib64 "$target/usr/lib64"
+ln -s lib "$target/lib64"
+ln -s lib "$target/usr/lib64"
 
 # Fix permissions and ownerships for some special cases.
 chown "$owner:$group" "$target/."
