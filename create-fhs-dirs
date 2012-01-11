@@ -36,6 +36,7 @@ bin
 boot
 dev
 etc
+etc/ld.so.conf.d
 home
 lib
 media
