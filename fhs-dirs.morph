@@ -10,6 +10,7 @@
         "install group \"$DESTDIR/etc/group\"",
         "install -d \"$DESTDIR/etc/init.d\"",
         "install -m 744 rcS \"$DESTDIR/etc/init.d/rcS\"",
+        "install -m 644 ld.so.conf \"$DESTDIR/etc/ld.so.conf\"",
         "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
 }
