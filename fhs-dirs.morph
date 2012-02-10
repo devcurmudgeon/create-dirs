@@ -7,6 +7,7 @@
         "./create-dev-nodes \"$DESTDIR\"",
         "install passwd \"$DESTDIR/etc/passwd\"",
         "install inittab \"$DESTDIR/etc/inittab\"",
+        "install interfaces \"$DESTDIR/etc/network/interfaces\"",
         "install group \"$DESTDIR/etc/group\"",
         "install -d \"$DESTDIR/etc/init.d\"",
         "install -m 744 rcS \"$DESTDIR/etc/init.d/rcS\"",
