@@ -1,7 +1,7 @@
 {
     "name": "fhs-dirs",
     "kind": "chunk",
-    "decription": "create the FHS 2.3 directory hierarchy (bootstrap edition)",
+    "decription": "create the FHS 2.3 directory hierarchy and the usual files",
     "install-commands": [
         "./create-fhs-dirs \"$DESTDIR\"",
         "./create-dev-nodes \"$DESTDIR\"",
