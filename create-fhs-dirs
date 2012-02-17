@@ -88,10 +88,6 @@ do
     install -d -o "$owner" -g "$group" -m "$perms" "$target/$dirname"
 done
 
-# Add stupid lib64 symlinks.
-ln -s lib "$target/lib64"
-ln -s lib "$target/usr/lib64"
-
 # Fix permissions and ownerships for some special cases.
 chown "$owner:$group" "$target/."
 chmod "$perms" "$target/."
