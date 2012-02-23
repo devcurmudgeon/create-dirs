@@ -1,6 +1,13 @@
 #!/bin/sh
+rm /etc/mtab
+touch /etc/mtab
 mount /proc
 mount /sys
+mkdir -p /dev/pts
+mount /dev/pts
+
+echo /sbin/mdev >/proc/sys/kernel/hotplug
+mdev -s
 
 ifdown eth0
 ifup eth0
