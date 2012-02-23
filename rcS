@@ -9,5 +9,7 @@ mount /dev/pts
 echo /sbin/mdev >/proc/sys/kernel/hotplug
 mdev -s
 
+hostname -F /etc/hostname
+
 ifdown eth0
 ifup eth0
