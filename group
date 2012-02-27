@@ -1,1 +1,13 @@
-root:x:0:
+root:x:0:root
+disk:x:6:
+cdrom:x:24:
+floppy:x:25:
+tape:x:26:
+audio:x:29:
+video:x:44
+lp:x:7:
+tty:x:5:
+dialout:x:20:
+kmem:x:15:
+sshd:x:50:sshd
+nogroup:x:65534:nobody
