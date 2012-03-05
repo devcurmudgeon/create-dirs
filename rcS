@@ -13,3 +13,5 @@ hostname -F /etc/hostname
 
 ifdown eth0
 ifup eth0
+
+run-parts -a start /etc/init.d
