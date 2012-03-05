@@ -1,4 +1,4 @@
-::sysinit:/etc/init.d/rcS
+::sysinit:/etc/rcS
 
 ::askfirst:/bin/cttyhack /bin/sh
 ::respawn:/sbin/getty -L ttyS0 9600 vt100
