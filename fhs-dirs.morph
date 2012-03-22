@@ -3,8 +3,8 @@
     "kind": "chunk",
     "decription": "create the FHS 2.3 directory hierarchy and the usual files",
     "install-commands": [
-        "./create-fhs-dirs \"$DESTDIR\"",
-        "./create-dev-nodes \"$DESTDIR\"",
+        "sh ./create-fhs-dirs \"$DESTDIR\"",
+        "sh ./create-dev-nodes \"$DESTDIR\"",
         "install passwd \"$DESTDIR/etc/passwd\"",
         "install inittab \"$DESTDIR/etc/inittab\"",
         "install interfaces \"$DESTDIR/etc/network/interfaces\"",
