@@ -13,4 +13,5 @@ utmp:x:43:
 video:x:44:
 sshd:x:50:sshd
 lock:x:54:
+messagebus:x:107:
 nogroup:x:65534:nobody
