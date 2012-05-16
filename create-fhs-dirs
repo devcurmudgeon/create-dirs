@@ -78,7 +78,6 @@ var/cache
 var/lib
 var/lock
 var/log
-var/run
 var/spool
 var/tmp
 "
@@ -87,6 +86,13 @@ for dirname in $dirs
 do
     install -d -o "$owner" -g "$group" -m "$perms" "$target/$dirname"
 done
+
+while read link name; do
+    ln -s "$link" "$target/$name"
+done <<EOF
+/run         /var/run
+/proc/mounts /etc/mtab
+EOF
 
 # Fix permissions and ownerships for some special cases.
 chown "$owner:$group" "$target/."

@@ -12,7 +12,6 @@
         "install -d \"$DESTDIR/etc/init.d\"",
         "install -m 744 rcS \"$DESTDIR/etc/rcS\"",
         "install -m 644 ld.so.conf \"$DESTDIR/etc/ld.so.conf\"",
-        "ln -s /proc/mounts \"$DESTDIR\"/etc/mtab",
         "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
 }
