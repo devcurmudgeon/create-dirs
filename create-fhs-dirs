@@ -78,6 +78,7 @@ var/cache
 var/lib
 var/lock
 var/log
+var/run
 var/spool
 var/tmp
 "
@@ -90,7 +91,6 @@ done
 while read link name; do
     ln -s "$link" "$target/$name"
 done <<EOF
-/run         /var/run
 /proc/mounts /etc/mtab
 EOF
 
