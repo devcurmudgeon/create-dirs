@@ -5,12 +5,10 @@
     "install-commands": [
         "sh ./create-fhs-dirs \"$DESTDIR\"",
         "sh ./create-dev-nodes \"$DESTDIR\"",
-        "install passwd \"$DESTDIR/etc/passwd\"",
-        "install inittab \"$DESTDIR/etc/inittab\"",
-        "install interfaces \"$DESTDIR/etc/network/interfaces\"",
-        "install group \"$DESTDIR/etc/group\"",
-        "install -d \"$DESTDIR/etc/init.d\"",
-        "install -m 744 rcS \"$DESTDIR/etc/rcS\"",
+        "install -m 644 passwd \"$DESTDIR/etc/passwd\"",
+        "install -m 600 shadow \"$DESTDIR/etc/shadow\"",
+        "install -m 644 interfaces \"$DESTDIR/etc/network/interfaces\"",
+        "install -m 644 group \"$DESTDIR/etc/group\"",
         "install -m 644 ld.so.conf \"$DESTDIR/etc/ld.so.conf\"",
         "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
