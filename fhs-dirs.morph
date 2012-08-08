@@ -10,6 +10,7 @@
         "install -m 644 interfaces \"$DESTDIR/etc/network/interfaces\"",
         "install -m 644 group \"$DESTDIR/etc/group\"",
         "install -m 644 ld.so.conf \"$DESTDIR/etc/ld.so.conf\"",
+        "install -m 644 issue \"$DESTDIR/etc/issue\"",
         "echo baserock > \"$DESTDIR\"/etc/hostname"
     ]
 }
