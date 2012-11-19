@@ -10,4 +10,7 @@
 
 sunrpc          111/tcp         portmapper rpcbind
 sunrpc          111/udp         portmapper rpcbind
+nfs             2049/tcp        nfsd shilp
+nfs             2049/udp        nfsd shilp
+nfs             2049/sctp       nfsd shilp
 
