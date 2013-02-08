@@ -1,0 +1,71 @@
+name: stage2-fhs-dirs
+kind: chunk
+decription: create the FHS 2.3 directory hierarchy and the usual files
+
+install-commands:
+    # We tweak this a little for stage 2 because everything is installed into
+    # the one sysroot (/tools). We use symlinked versions of /bin, to make
+    # happy things that hardcode /bin/sh (i.e. everyone). There are probably
+    # assorted other hardcoded references to things in /bin so the symlink
+    # is a nice solution.
+
+    - sh ./create-fhs-dirs "$DESTDIR"
+    - rmdir "$DESTDIR/bin"
+    - ln -s "$PREFIX/bin" "$DESTDIR/bin"
+
+    # A symlinked /lib isn't an option though, because the eglibc chunk
+    # in stage 3 installs files there, and other chunks in stage 3 depend
+    # on it. To work around this, the stage2-gcc morphology manually
+    # creates symlinks for the libraries it installs into /tools/lib so
+    # that they can be found during stage 3 builds, and stage2-eglibc
+    # likewise installs a symlink for the program loader (ld.so).
+
+    - install -m 644 passwd "$DESTDIR/etc/passwd"
+    - install -m 600 shadow "$DESTDIR/etc/shadow"
+    - install -m 644 interfaces "$DESTDIR/etc/network/interfaces"
+    - install -m 644 group "$DESTDIR/etc/group"
+    - install -m 644 ld.so.conf "$DESTDIR/etc/ld.so.conf"
+    - install -m 644 issue "$DESTDIR/etc/issue"
+    - install -m 644 services "$DESTDIR/etc/services"
+    - echo baserock > "$DESTDIR"/etc/hostname
+
+devices:
+    - filename: /dev/console
+      uid: 0
+      gid: 0
+      type: c
+      major: 5
+      minor: 1
+      permissions: '0600'
+
+    - filename: /dev/full
+      uid: 0
+      gid: 0
+      type: c
+      major: 1
+      minor: 7
+      permissions: '0666'
+
+    - filename: /dev/null
+      uid: 0
+      gid: 0
+      type: c
+      major: 1
+      minor: 3
+      permissions: '0666'
+
+    - filename: /dev/urandom
+      uid: 0
+      gid: 0
+      type: c
+      major: 1
+      minor: 9
+      permissions: '0666'
+
+    - filename: /dev/zero
+      uid: 0
+      gid: 0
+      type: c
+      major: 1
+      minor: 5
+      permissions: '0666'
