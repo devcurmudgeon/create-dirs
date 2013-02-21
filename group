@@ -14,4 +14,6 @@ video:x:44:
 sshd:x:50:sshd
 lock:x:54:
 messagebus:x:107:
+pulse::109:
+pulse-access::110:root
 nogroup:x:65534:nobody
