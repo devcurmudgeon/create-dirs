@@ -8,7 +8,7 @@ dialout:x:20:
 cdrom:x:24:
 floppy:x:25:
 tape:x:26:
-audio:x:29:
+audio:x:29:pulse
 utmp:x:43:
 video:x:44:
 sshd:x:50:sshd
