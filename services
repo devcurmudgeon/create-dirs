@@ -1,0 +1,16 @@
+# Minimal services file
+#
+# The traditional full list of services, available from this package:
+#    http://sethwklein.net/iana-etc
+# is 188KB completely stripped, and doesn't belong in /etc anyway.
+#
+# This file is not in Baserock right now, but could happily live in
+# its own chunk, installed to /usr/share (this might require some
+# libc patching to work correctly).
+
+sunrpc          111/tcp         portmapper rpcbind
+sunrpc          111/udp         portmapper rpcbind
+nfs             2049/tcp        nfsd shilp
+nfs             2049/udp        nfsd shilp
+nfs             2049/sctp       nfsd shilp
+

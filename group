@@ -8,10 +8,12 @@ dialout:x:20:
 cdrom:x:24:
 floppy:x:25:
 tape:x:26:
-audio:x:29:
+audio:x:29:pulse
 utmp:x:43:
 video:x:44:
 sshd:x:50:sshd
 lock:x:54:
 messagebus:x:107:
+pulse::109:
+pulse-access::110:root
 nogroup:x:65534:nobody
