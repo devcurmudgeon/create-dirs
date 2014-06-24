@@ -1,6 +1,6 @@
 name: fhs-dirs
 kind: chunk
-decription: create the FHS 2.3 directory hierarchy and the usual files
+description: create the FHS 2.3 directory hierarchy and the usual files
 install-commands:
 - sh ./create-fhs-dirs "$DESTDIR"
 - install -m 644 passwd "$DESTDIR/etc/passwd"
