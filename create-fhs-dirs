@@ -36,7 +36,6 @@ bin
 boot
 dev
 etc
-etc/ld.so.conf.d
 etc/network
 home
 lib
