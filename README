@@ -1,14 +1,17 @@
-README for `fhs-dirs`
-=====================
+README for `create-dirs`
+========================
 
-`fhs-dirs` is a tiny project that creates the minimal directory structure
-to implement the Filesystem Hierarchy Standard (FHS).
+`create-dirs` is a tiny project that creates a minimal directory structure
+with specified user:group and permissions settings. By default it implements
+the Filesystem Hierarchy Standard (FHS) but this can be overridden by calling
+it with a user-provided list.
 
+create-dirs is a re-work of the original fhs-dirs project from Baserock.
 
 Legalese
 --------
 
-Copyright (C) 2011  Codethink Limited
+Copyright (C) 2011, 2016  Codethink Limited
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

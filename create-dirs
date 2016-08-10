@@ -34,7 +34,7 @@ defaultperms=0755
 
 if [ ! "$2" ]
 then
-    directories=directories
+    directories=fhs-directories
 fi
 
 if [ ! "$3"]
