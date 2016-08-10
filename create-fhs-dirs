@@ -2,7 +2,7 @@
 #
 # Create FHS directories below a target directory.
 #
-# Copyright (C) 2011  Codethink Limited
+# Copyright (C) 2011, 2016  Codethink Limited
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,83 +19,53 @@
 
 set -ex
 
-if [ "$#" != 1 ]
+if [ "$#" -lt 1 ]
 then
+    echo "USAGE: $0 <target-dir> [<dirs-file>] [<links-file>]" 1>&2
     echo "Error: must give target root directory as argument." 1>&2
     exit 1
 fi
 
 target="$1"
 
-owner=root
-group=root
-perms=0755
+defaultowner=root
+defaultgroup=root
+defaultperms=0755
 
-dirs="
-bin
-boot
-dev
-etc
-etc/network
-home
-lib
-media
-mnt
-opt
-proc
-root
-run
-sbin
-srv
-sys
-tmp
-usr
-usr/bin
-usr/include
-usr/lib
-usr/local
-usr/local/bin
-usr/local/lib
-usr/local/share
-usr/local/sbin
-usr/sbin
-usr/share
-usr/share/doc
-usr/share/info
-usr/share/man
-usr/share/man1
-usr/share/man2
-usr/share/man3
-usr/share/man4
-usr/share/man5
-usr/share/man6
-usr/share/man7
-usr/share/man8
-usr/share/misc
-var
-var/cache
-var/lib
-var/lock
-var/log
-var/run
-var/spool
-var/tmp
-"
+if [ ! "$2" ]
+then
+    directories=directories
+fi
 
-for dirname in $dirs
+if [ ! "$3"]
+then
+    links=links
+fi
+
+while read dirname perms owner group
 do
-    install -d -o "$owner" -g "$group" -m "$perms" "$target/$dirname"
-done
+    if [ ! "$perms" ]
+    then
+        perms=$defaultperms
+    fi
+    if [ ! "$owner" ]
+    then
+        owner=$defaultowner
+    fi
+    if [ ! "$group" ]
+    then
+        group=$defaultgroup
+    fi
+
+    if [ "$dirname" ]
+    then
+        install -d -o "$owner" -g "$group" -m "$perms" "$target/$dirname"
+    fi
+    owner=""
+    group=""
+    perms=""
+done < $directories
 
 while read link name; do
     ln -s "$link" "$target/$name"
-done <<EOF
-/proc/mounts /etc/mtab
-EOF
-
-# Fix permissions and ownerships for some special cases.
-chown "$owner:$group" "$target/."
-chmod "$perms" "$target/."
-chmod 01777 "$target/tmp"
-chmod 01777 "$target/var/tmp"
-
+done < $links
